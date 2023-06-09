@@ -39,6 +39,16 @@ void swapalt(int arr[],int n){
     }
 }
 
+void movezeros(int arr[],int n){
+    int i=0;
+    for(int j=0;j<n;j++){
+        if(arr[j]!=0){
+            swap(arr[j],arr[i]);
+            i++;
+        }
+    }
+}
+
 int main(){
     int n;
     cin>>n;
@@ -48,6 +58,8 @@ int main(){
     }
     printarr(arr,n);
     cout<<getmax(arr,n)<<endl;
+    movezeros(arr,n);
+    printarr(arr,n);
     reversearr(arr,n);
     printarr(arr,n);
     swapalt(arr,n);
