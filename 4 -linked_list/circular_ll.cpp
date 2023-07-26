@@ -64,6 +64,20 @@ void deletenode(node* &tail,int d){
     }
 }
 
+bool checkcircular(node* &tail){
+    if(tail==NULL){
+        return false;
+    }
+    node* temp=tail->next;
+    while(temp!=NULL && temp!=tail){
+        temp=temp->next;
+    }
+    if(temp==tail){
+        return true;
+    }
+    return false;
+}
+
 int main(){
     node* tail=NULL;
     insertnode(tail,5,3);
@@ -76,7 +90,13 @@ int main(){
     print(tail);
     insertnode(tail,3,4);
     print(tail);
-    deletenode(tail,3);
-    print(tail);
+    // deletenode(tail,3);
+    // print(tail);
+    if(checkcircular(tail)){
+        cout<<"circular"<<endl;
+    }
+    else{
+        cout<<"not circular"<<endl;
+    }
     return 0;
 }
